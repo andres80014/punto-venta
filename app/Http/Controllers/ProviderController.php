@@ -17,7 +17,7 @@ class ProviderController extends Controller
     public function index()
     {
         $providers = Provider::get();
-        return view('admin.provider.index',compact('providers'));
+        return view('layouts.admin.provider.index',compact('providers'));
     }
 
     /**
@@ -27,7 +27,8 @@ class ProviderController extends Controller
      */
     public function create()
     {
-        return view('admin.provider.create');
+        return view('layouts.admin.provider.create');
+
     }
 
     /**
@@ -36,8 +37,9 @@ class ProviderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
+
         Provider::create($request->all());
         return redirect()->route('providers.index');
     }

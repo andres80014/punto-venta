@@ -63,7 +63,7 @@ class ProviderController extends Controller
      */
     public function edit(Provider $provider)
     {
-        return view('admin.provider.edit',compact('provider'));
+        return view('layouts.admin.provider.edit',compact('provider'));
     }
 
     /**

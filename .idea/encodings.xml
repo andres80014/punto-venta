@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/Http/Requests/Product/StoreRequest.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2021_04_06_232349_create_products_table.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/layouts/admin/provider/edit.blade.php" charset="UTF-8" />
   </component>
 </project>

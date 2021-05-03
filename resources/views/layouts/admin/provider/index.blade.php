@@ -72,7 +72,7 @@
                                     <tr>
                                         <th scope="row">{{$provider->id}}</th>
                                         <td>
-                                            {{$provider->name}}
+                                            <a href="{{route('providers.show',$provider)}}">{{$provider->name}}</a>
                                         </td>
                                         <td>{{$provider->email}}</td>
 

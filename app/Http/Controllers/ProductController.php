@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::get();
-        return view('admin.product.index');
+        return view('layouts.admin.product.index',compact('products'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         $categories = Category::get();
         $providers  = Provider::get();
-        return view('admin.product.create',compact('categories','providers'));
+        return view('layouts.admin.product.create',compact('categories','providers'));
     }
 
     /**
@@ -40,9 +40,21 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        Product::create($request->all());
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $image_name = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path('/image'),$image_name);
+        }
+
+
+        $product = Product::create($request->all()+[
+            'image'=>$image_name
+            ]);
+
+        $product->update(['code'=>$product->id]);
         return redirect()->route('products.index');
     }
 

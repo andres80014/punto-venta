@@ -79,7 +79,7 @@ class ProductController extends Controller
     {
         $categories = Category::get();
         $providers  = Provider::get();
-        return view('admin.product.edit',compact('product','categories','providers'));
+        return view('layouts.admin.product.edit',compact('product','categories','providers'));
     }
 
     /**
@@ -91,7 +91,15 @@ class ProductController extends Controller
      */
     public function update(UpdateRequest $request, Product $product)
     {
-        $product->update($request->all());
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $image_name = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path('/image'),$image_name);
+        }
+
+        $product->update($request->all() + [
+                'image'=>$image_name
+            ]);
         return redirect()->route('products.index');
     }
 

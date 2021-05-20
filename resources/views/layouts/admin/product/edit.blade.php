@@ -45,7 +45,7 @@
                         <div class="d-flex justify-content-between">
                             <h4 class="card-title">Edicion Productos</h4>
                         </div>
-                        
+
                         {!! Form::model($product,['route' => ['products.update',$product],'method'=>'PUT','files' => true]) !!}
                         <div class="form-group">
                             <label for="name">Nombre</label>
@@ -96,10 +96,10 @@
                                     <a href="dropify.html" class="font-weight-light" target="_blank">Seleccionar Archivo</a>
                                 </small>
                             </h4>
-                            <input type="file" class="dropify"  name="image" id="image"/>
+                            <input type="file" class="dropify"  name="picture" id="picture"/>
                         </div>
 
-                        <button type="submit" class="btn btn-primary mr-2">Registrar</button>
+                        <button type="submit" class="btn btn-primary mr-2">Editar</button>
 
                         <a href="{{route('products.index')}}" class="btn btn-light mr-2">Cancelar</a>
                         {!! Form::close() !!}

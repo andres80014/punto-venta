@@ -29,7 +29,7 @@
 </div>
 
 <div class="custom-file mb-5" >
-    <input type="file" class="custom-file-input" name="image" id="image" lang="es">
+    <input type="file" class="custom-file-input" name="picture" id="picture" lang="es">
     <label class="custom-file-label" for="image">Seleccionar Archivo</label>
 </div>
 

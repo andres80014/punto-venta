@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Registrar Productos')
+@section('title','Registrar Clientes')
 @section('styles')
     <style type="text/css">
         .unstyled-button {
@@ -14,7 +14,7 @@
 
 @section('create')
     <li class="nav-item d-none d-lg-flex">
-        <a class="nav-link" href="{{route('products.create')}}">
+        <a class="nav-link" href="{{route('clients.create')}}">
             <span class="btn btn-primary">Crear Nuevo</span>
         </a>
     </li>
@@ -32,8 +32,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('products.index')}}">Productos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Registro Productos</li>
+                    <li class="breadcrumb-item"><a href="{{route('clients.index')}}">Clientes</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Registro Clientes</li>
                 </ol>
             </nav>
         </div>
@@ -43,13 +43,13 @@
                     <div class="card-body">
 
                         <div class="d-flex justify-content-between">
-                            <h4 class="card-title">Registro Productos</h4>
+                            <h4 class="card-title">Registro Cliente</h4>
                         </div>
-                        {!! Form::open(['route'=>'products.store', 'method'=>'POST','files' => true]) !!}
-                        @include('layouts.admin.product._form')
+                        {!! Form::open(['route'=>'clients.store', 'method'=>'POST','files' => true]) !!}
+                        @include('layouts.admin.client._form')
                         <button type="submit" class="btn btn-primary mr-2">Registrar</button>
 
-                        <a href="{{route('products.index')}}" class="btn btn-light mr-2">Cancelar</a>
+                        <a href="{{route('clients.index')}}" class="btn btn-light mr-2">Cancelar</a>
                         {!! Form::close() !!}
                     </div>
                     {{--  <div class="card-footer text-muted">
@@ -63,4 +63,3 @@
 @section('scripts')
     {!! Html::script('melody/js/data-table.js') !!}
 @endsection
-

@@ -72,8 +72,10 @@
                                 @foreach ($clients as $client)
                                     <tr>
                                         <th scope="row">{{$client->id}}</th>
+
                                         <td>
-                                            {{$client->name}}
+                                            <a href="{{route('clients.show',$client)}}">{{$client->name}}</a>
+
                                         </td>
                                         <td>{{$client->dni}}</td>
 
